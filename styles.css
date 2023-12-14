@@ -46,7 +46,7 @@ html {
 
 .column-right video {
     width: 100%;
-    max-height: calc((100vh - 40px - 2 * 20px - 2 * 5px - 30px) / 2); 
+    max-height: calc((100vh - 40px - 2 * 20px - 2 * 5px - 30px) / 2 - 20px); /* Decrease the height */
     object-fit: contain;
 }
 
@@ -226,3 +226,14 @@ html {
     justify-content: center; 
 }
 
+#frameVideo2 {
+    background-color: red;
+    color: white;
+    font-size: 1.5em;
+}
+
+#frameVideo3 {
+    background-color: blue;
+    color: white;
+    font-size: 1.5em;
+}
