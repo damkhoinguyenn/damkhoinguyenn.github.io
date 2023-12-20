@@ -25,6 +25,36 @@ function setupEventListeners() {
     .addEventListener("change", () =>
       updateFrameDisplay("selectVideo3", "frameVideo3", frameIdMapHand)
     );
+  document
+    .getElementById("showImageVideo2")
+    .addEventListener("click", function () {
+      localStorage.setItem("selectedFrames", JSON.stringify(selectedFrames));
+      localStorage.setItem("imageType", "Stand");
+      // window.open("displayImages.html", "_blank");
+      window.open("display.html", "_blank");
+    });
+
+  document
+    .getElementById("showImageVideo3")
+    .addEventListener("click", function () {
+      localStorage.setItem("selectedFrames", JSON.stringify(selectedFrames));
+      localStorage.setItem("imageType", "Hand");
+      // window.open("displayImages.html", "_blank");
+      window.open("display.html", "_blank");
+    });
+}
+
+function updateFrameDisplay(selectId, frameDivId, frameMap) {
+  const selectedId = document.getElementById(selectId).value;
+  const frames = frameMap[selectedId] || [];
+  selectedFrames = frames;
+  if (selectedId === "0") {
+    document.getElementById(frameDivId).innerHTML = "";
+  } else {
+    document.getElementById(
+      frameDivId
+    ).innerHTML = `Frames for id ${selectedId}: ${frames.join(", ")}`;
+  }
 }
 
 function setupVideoControl() {
@@ -50,6 +80,10 @@ function togglePlayPause() {
 
 function loadVideosFromFolder(event) {
   const files = event.target.files;
+  if (files.length > 0) {
+    const folderName = files[0].webkitRelativePath.split("/")[0];
+    localStorage.setItem("selectedFolderName", folderName);
+  }
   const videoFileNames = ["video1.mp4", "video2.mp4", "video3.mp4"];
   const textFileNames = ["Stand.txt", "Hand.txt"];
 
@@ -151,14 +185,6 @@ function populateSelectElements(uniqueIds) {
       select.appendChild(new Option(id, id));
     });
   });
-}
-
-function updateFrameDisplay(selectId, frameDivId, frameMap) {
-  const selectedId = document.getElementById(selectId).value;
-  const frames = frameMap[selectedId] || [];
-  document.getElementById(
-    frameDivId
-  ).innerHTML = `Frames for id ${selectedId}: ${frames.join(", ")}`;
 }
 
 function enableHorizontalScrolling() {
