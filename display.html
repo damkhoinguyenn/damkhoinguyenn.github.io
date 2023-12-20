@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Selected Image</title>
+    <style>
+        .content-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .frame-selector {
+            margin-bottom: 10px;
+        }
+
+        .image-display {
+            display: inline-block;
+            position: relative;
+        }
+
+        .frame-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-container">
+        <select id="frameSelector" class="frame-selector"></select>
+        <div id="imageDisplay" class="image-display"></div>
+    </div>
+    <script src="display.js"></script>
+</body>
+
+</html>
