@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function displayImage(frame) {
     imageDisplay.innerHTML = "";
     const img = document.createElement("img");
-    img.src = `tree/main/data/${folderName}/images${imageType}/${frame}.jpg`;
+    img.src = `data/${folderName}/images${imageType}/${frame}.jpg`;
     img.classList.add("frame-image");
     imageDisplay.appendChild(img);
   }
