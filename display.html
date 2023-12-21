@@ -6,23 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display Selected Image</title>
     <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
         .content-container {
-            text-align: center;
-            margin-top: 20px;
+            position: relative;
+            height: 100%;
         }
 
         .frame-selector {
-            margin-bottom: 10px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
         }
 
         .image-display {
-            display: inline-block;
-            position: relative;
+            height: 100%;
+            width: 100%;
         }
 
         .frame-image {
-            max-width: 100%;
-            height: auto;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
             display: block;
         }
     </style>
